@@ -95,15 +95,7 @@ function toSolidityInput(proof) {
 function genWitness(input, circuitJson) {
     const circuit = new Circuit(unstringifyBigInts2(circuitJson));
     const witness = circuit.calculateWitness(unstringifyBigInts2(input));
-
-    // Write `witness` to file
-    fs.writeFileSync("witness.json", JSON.stringify(stringifyBigInts(witness)));
-
     const publicSignals = witness.slice(1, circuit.nPubInputs + circuit.nOutputs + 1);
-    for (let i = 0; i < publicSignals.length; i++) {
-        console.log("publicSignals[" + i + "]: " + publicSignals[i].toString());
-    }
-
     return { witness, publicSignals };
 }
 
