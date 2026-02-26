@@ -1,3 +1,5 @@
+Fork of the websnark repo at https://git.tornado.ws/, currently down.
+
 # websnark
 
 A fast zkSnark proof generator written in native Web Assembly.
